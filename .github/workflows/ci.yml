@@ -26,7 +26,6 @@ jobs:
       - name: Run Tests
         run: |
             cd backend
-            npm dev
             npm test
   frontend:
     name: Frontend Build & Tests
