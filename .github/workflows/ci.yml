@@ -62,8 +62,7 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        run: npm install
-
-      - name: Run npm audit
-        run: npm audit --audit-level=high       
-            
+        run: |
+          cd backend
+          npm install
+          npm audit --audit-level=high 
