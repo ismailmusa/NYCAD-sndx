@@ -57,4 +57,5 @@ jobs:
       - name: Vulnarability-scanning
         run: |
              cd frontend
-             npm audit --audit-level=high    
+             npm audit --audit-level=high
+             npm audit fix --force
