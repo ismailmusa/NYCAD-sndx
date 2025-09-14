@@ -83,6 +83,7 @@ jobs:
           format: 'table'
           exit-code: '1'   # fail job if vulnerabilities found
           severity: 'CRITICAL,HIGH'
+          
   trivy-backend-scan:
     runs-on: ubuntu-latest
     steps:
