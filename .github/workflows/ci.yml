@@ -102,7 +102,7 @@ jobs:
       - name: Run Trivy scan
         uses: aquasecurity/trivy-action@0.20.0
         with:
-          image-ref: 'my-node-app:latest'
+          image-ref: 'node-app:latest'
           format: 'table'
           exit-code: '1'   # fail job if vulnerabilities found
           severity: 'CRITICAL,HIGH'   
