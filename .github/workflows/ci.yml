@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 jobs: 
   backend:
-    name: Backend Tests
+    name: Backend build & Tests
     runs-on: ubuntu-latest
 
     steps:
@@ -27,6 +27,10 @@ jobs:
         run: |
             cd backend
             npm test
+      - name: Backend-Vulnarability-scanning
+        run: |
+             cd backend
+             npm audit --audit-level=high
   frontend:
     name: Frontend Build & Tests
     runs-on: ubuntu-latest
@@ -49,20 +53,3 @@ jobs:
         run: |
           cd frontend
           npm run build
-
-  npm-audit:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-
-      - name: Install dependencies
-        run: |
-          cd backend
-          npm install
-          npm audit --audit-level=high 
