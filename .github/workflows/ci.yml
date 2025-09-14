@@ -73,6 +73,7 @@ jobs:
 
       - name: Build Docker image
         run: |
+          cd frontend
           docker build -t my-node-app:latest .
 
       - name: Run Trivy scan
@@ -95,6 +96,7 @@ jobs:
 
       - name: Build Docker image
         run: |
+          cd backend
           docker build -t node-app:latest .
 
       - name: Run Trivy scan
