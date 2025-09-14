@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 jobs: 
   backend:
-    name: Backend build & Tests
+    name: Backend build & Tests & Vulnarability-scanning
     runs-on: ubuntu-latest
 
     steps:
@@ -27,12 +27,12 @@ jobs:
         run: |
             cd backend
             npm test
-      - name: Backend-Vulnarability-scanning
+      - name: Vulnarability-scanning
         run: |
              cd backend
              npm audit --audit-level=high
   frontend:
-    name: Frontend Build & Tests
+    name: Frontend Build & Tests & Vulnarability-scanning
     runs-on: ubuntu-latest
 
     steps:
@@ -53,3 +53,8 @@ jobs:
         run: |
           cd frontend
           npm run build
+
+      - name: Vulnarability-scanning
+        run: |
+             cd frontend
+             npm audit --audit-level=high    
